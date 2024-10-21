@@ -1,14 +1,14 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/header.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/header.astro";
+import Herosection from "../components/herosection.astro";
+import Aniversario from "../components/aniversario.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-	 <Header />
-	</main>
+<Layout title="U.E.P San Gerardo">
+  <main class="flex flex-col gap-20 lg:gap-40">
+    <Header />
+    <Herosection />
+    <Aniversario />
+  </main>
 </Layout>
-
-<style>
-
-</style>
