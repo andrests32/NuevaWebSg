@@ -1,0 +1,73 @@
+---
+const directivos = [
+  {
+    img: "/directora.png",
+    directivo: "Violeta Pilco Correa",
+    cargo: "Rectora",
+    lema: "Guiando con visión y excelencia."
+  },
+  {
+    img: "/vicerrctora.png",
+    directivo: "Liliana Pozo",
+    cargo: "Vicerrectora",
+    lema: "Comprometida con la calidad educativa."
+  },
+  {
+    img: "/directorainicial.png",
+    directivo: "Lucia Pilco Correa",
+    cargo: "Directora Inicial",
+    lema: "Formando bases sólidas para el futuro."
+  },
+  {
+    img: "/directoraescuela.png",
+    directivo: "Stephanie Arteaga",
+    cargo: "Directora Escuela",
+    lema: "Fomentando el crecimiento académico."
+  }
+];
+---
+
+<section class="max-w-screen-xl w-full h-auto flex flex-col px-5 gap-5 pt-20">
+  <h2
+    class="font-monse font-medium text-[3.5rem] lg:text-[5.2rem] text-center text-[#1B2534]"
+  >
+    Liderazgo Institucional
+  </h2>
+  <p
+    class="font-roboto-slab text-[1.4rem] lg:text-[2.2rem] text-center text-gray-600 lg:px-60"
+  >
+    Descubre a los directivos que lideran nuestra institución con visión y
+    excelencia, asegurando una educación de calidad en cada etapa de nuestro
+    camino.
+  </p>
+
+  <section class="w-full flex flex-col items-center justify-center pt-20 px-2">
+    <!-- Cards de directivos -->
+    <div class="w-full px-10 py-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        {
+          directivos.map((dir) => (
+            <div class="relative bg-white shadow-md rounded-md overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer">
+              <img
+                class="w-full h-74 object-cover"
+                src={dir.img}
+                alt="imagen-directivos"
+              />
+              <div class="absolute inset-x-0 bottom-[8.4rem] bg-black bg-opacity-60 p-4 text-white">
+                <h3 class="text-[2rem] font-bold font-monse">
+                  {dir.directivo}
+                </h3>
+                <p class="text-[1.5rem] font-monse">{dir.cargo}</p>
+              </div>
+              <div class="p-6">
+                <p class="font-roboto-slab text-[1.8rem] text-center font-normal text-gray-600 capitalize">
+                  {dir.lema}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</section>

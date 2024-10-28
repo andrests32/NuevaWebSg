@@ -1,0 +1,144 @@
+---
+const testimonios = [
+{
+    img: "/testimonio1.png",
+    nombre: "Ramiro Coronel",
+    texto:
+      "“Tuve el honor de ser el primer abanderado de la institución, lo que me hizo ver a San Gerardo como una verdadera familia. Por eso, decidimos inscribir a nuestra hija aquí.”"
+  },
+
+  {
+    img: "/testimonio2.png",
+    nombre: "Paula Moncada",
+    texto:
+      "“San Gerardo nos proporcionó las herramientas para crear un espacio en el que los niños puedan estar concentrados y cómodos para aprender. Ha sido una gran ayuda que nos hayan guiado en este proceso.”"
+  },
+
+  {
+    img: "/testimonio3.png",
+    nombre: "Johanna Lozano",
+    texto:
+      "“Al encontrar a San Gerardo, descubrí una institución que ofrece una educación integral, permitiendo a mis hijos aprender una variedad de habilidades.”"
+  },
+
+  {
+    img: "/testimonio1.png",
+    nombre: "Ramiro Coronel",
+    texto:
+      "“Tuve el honor de ser el primer abanderado de la institución, lo que me hizo ver a San Gerardo como una verdadera familia. Por eso, decidimos inscribir a nuestra hija aquí.”"
+  },
+
+  {
+    img: "/testimonio2.png",
+    nombre: "Paula Moncada",
+    texto:
+      "“San Gerardo nos proporcionó las herramientas para crear un espacio en el que los niños puedan estar concentrados y cómodos para aprender. Ha sido una gran ayuda que nos hayan guiado en este proceso.”"
+  },
+
+  {
+    img: "/testimonio3.png",
+    nombre: "Johanna Lozano",
+    texto:
+      "“Al encontrar a San Gerardo, descubrí una institución que ofrece una educación integral, permitiendo a mis hijos aprender una variedad de habilidades.”"
+  },
+  
+];
+---
+
+<section class="w-full h-auto carrusel py-16">
+    <div class="max-w-screen-xl lg:w-[30%] h-auto m-auto">
+        <h2 class="font-monse lg:text-[5.2rem] text-[#1B2534]">Testimonios</h2>
+        <div class="carrusel-items lg:gap-20 lg:py-20" id="carrusel-items">
+          {
+            testimonios.map((testimonio) => (
+              <div class="testimonio">
+                <img src={testimonio.img} alt="imagen personal" />
+                <div>
+                  <span class="font-monse font-medium lg:text-[2.3rem] text-[#1B2534]">{testimonio.nombre}</span>
+                  <p class="font-roboto-slab lg:text-[1.8rem] text-gray-600">{testimonio.texto}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+    </div>
+</section>
+
+<style>
+  .carrusel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #f3f4f6;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .carrusel-items {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .testimonio {
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: rgba(100, 116, 139, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .testimonio img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+
+  .testimonio span {
+    color: #000;
+  }
+
+  .testimonio p {
+    color: #333333;
+    text-align: justify;
+  }
+
+  h2 {
+    text-align: center;
+  }
+</style>
+
+<script>
+  let index = 0;
+  let intervalId;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    function moveCarousel() {
+      const carruselItems = document.getElementById("carrusel-items");
+      const testimonios = document.querySelectorAll(".testimonio");
+      index++;
+      if (index >= testimonios.length) {
+        index = 0;
+      }
+      carruselItems.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    const carruselSection = document.querySelector(".carrusel");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          intervalId = setInterval(moveCarousel, 2500);
+        } else {
+          clearInterval(intervalId);
+        }
+      });
+    });
+
+    observer.observe(carruselSection);
+  });
+</script>

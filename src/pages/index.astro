@@ -4,13 +4,27 @@ import Header from "../components/header.astro";
 import Herosection from "../components/herosection.astro";
 import Aniversario from "../components/aniversario.astro";
 import Informacion from "../components/informacion.astro";
+import Directivos from "../components/directivos.astro";
+import BentoSocial from "../components/bentosocial.astro";
+import Testimonio from "../components/testimonio.astro";
+import Footer from "../components/footer.astro";
 ---
 
 <Layout title="U.E.P San Gerardo">
   <main class="flex flex-col items-center gap-40 lg:gap-20 lg:mt-40">
     <Header />
     <Informacion />
-    <Herosection />
-    <Aniversario />
+    <Herosection class="content" />
+    <Aniversario class="content" />
+    <Directivos class="content" />
+    <BentoSocial class="content" />
   </main>
+  <Testimonio class="content" />
+  <Footer class="content" />
 </Layout>
+
+<style>
+  .content {
+    content-visibility: auto;
+  }
+</style>
